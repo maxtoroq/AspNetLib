@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),AspNetLib.sln))\tools\WebStack.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{F44EAB06-8DF3-48C3-B0FC-73112CB82338}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Web.Mvc</RootNamespace>
+    <AssemblyName>AspNetLib.Mvc.DataAnnotations</AssemblyName>
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <RunCodeAnalysis>$(CodeAnalysis)</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\Strict.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="CachedAssociatedMetadataProvider.cs" />
+    <Compile Include="CachedDataAnnotationsMetadataAttributes.cs" />
+    <Compile Include="CachedDataAnnotationsModelMetadata.cs" />
+    <Compile Include="CachedDataAnnotationsModelMetadataProvider.cs" />
+    <Compile Include="CachedModelMetadata.cs" />
+    <Compile Include="CompareAttributeAdapter.cs" />
+    <Compile Include="DataAnnotationsModelMetadata.cs" />
+    <Compile Include="DataAnnotationsModelMetadataProvider.cs" />
+    <Compile Include="DataAnnotationsModelValidator.cs" />
+    <Compile Include="DataAnnotationsModelValidatorOfTAttribute.cs" />
+    <Compile Include="DataAnnotationsModelValidatorProvider.cs" />
+    <Compile Include="DataTypeAttributeAdapter.cs" />
+    <Compile Include="DataTypeUtil.cs" />
+    <Compile Include="FileExtensionsAttributeAdapter.cs" />
+    <Compile Include="MaxLengthAttributeAdapter.cs" />
+    <Compile Include="MembershipPasswordAttributeAdapter.cs" />
+    <Compile Include="MinLengthAttributeAdapter.cs" />
+    <Compile Include="ModelClientValidationEqualToRule.cs" />
+    <Compile Include="ModelClientValidationMaxLengthRule.cs" />
+    <Compile Include="ModelClientValidationMembershipPasswordRule.cs" />
+    <Compile Include="ModelClientValidationMinLengthRule.cs" />
+    <Compile Include="ModelClientValidationRangeRule.cs" />
+    <Compile Include="ModelClientValidationRegexRule.cs" />
+    <Compile Include="ModelClientValidationRequiredRule.cs" />
+    <Compile Include="ModelClientValidationStringLengthRule.cs" />
+    <Compile Include="PreApplicationStartCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangeAttributeAdapter.cs" />
+    <Compile Include="RegularExpressionAttributeAdapter.cs" />
+    <Compile Include="RequiredAttributeAdapter.cs" />
+    <Compile Include="StringLengthAttributeAdapter.cs" />
+    <Compile Include="ValidatableObjectAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetLib.Mvc\AspNetLib.Mvc.csproj">
+      <Project>{3d3ffd8a-624d-4e9b-954b-e1c105507975}</Project>
+      <Name>AspNetLib.Mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

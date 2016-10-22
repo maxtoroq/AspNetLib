@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),AspNetLib.sln))\tools\WebStack.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{6B4EDB0F-E72A-4530-89C4-7CB99ACD28BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Web.Mvc</RootNamespace>
+    <AssemblyName>AspNetLib.Mvc.ViewEngine.Razor</AssemblyName>
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <RunCodeAnalysis>$(CodeAnalysis)</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\Strict.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="IViewStartPageChild.cs" />
+    <Compile Include="MvcWebRazorHostFactory.cs" />
+    <Compile Include="PreApplicationStartCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazorView.cs" />
+    <Compile Include="RazorViewEngine.cs" />
+    <Compile Include="Razor\MvcCSharpRazorCodeGenerator.cs" />
+    <Compile Include="Razor\MvcCSharpRazorCodeParser.cs" />
+    <Compile Include="Razor\MvcVBRazorCodeParser.cs" />
+    <Compile Include="Razor\MvcWebPageRazorHost.cs" />
+    <Compile Include="Razor\SetModelTypeCodeGenerator.cs" />
+    <Compile Include="Razor\StartPageLookupDelegate.cs" />
+    <Compile Include="ViewStartPage.cs" />
+    <Compile Include="WebViewPage.cs" />
+    <Compile Include="WebViewPageOfTModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetLib.Mvc.ViewEngine.Compilation\AspNetLib.Mvc.ViewEngine.Compilation.csproj">
+      <Project>{4f39dea1-dcba-4a73-9293-8eee67c1c18e}</Project>
+      <Name>AspNetLib.Mvc.ViewEngine.Compilation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AspNetLib.Mvc.ViewEngine\AspNetLib.Mvc.ViewEngine.csproj">
+      <Project>{6b5ff4c8-59b5-4e5f-b0a5-d1d926df3451}</Project>
+      <Name>AspNetLib.Mvc.ViewEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AspNetLib.Mvc\AspNetLib.Mvc.csproj">
+      <Project>{3d3ffd8a-624d-4e9b-954b-e1c105507975}</Project>
+      <Name>AspNetLib.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Web.Razor\System.Web.Razor.csproj">
+      <Project>{8f18041b-9410-4c36-a9c5-067813df5f31}</Project>
+      <Name>System.Web.Razor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Web.WebPages.Razor\System.Web.WebPages.Razor.csproj">
+      <Project>{0939b11a-fe4e-4ba1-8ad6-d97741ee314f}</Project>
+      <Name>System.Web.WebPages.Razor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Web.WebPages\System.Web.WebPages.csproj">
+      <Project>{76efa9c5-8d7e-4fdf-b710-e20f8b6b00d2}</Project>
+      <Name>System.Web.WebPages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

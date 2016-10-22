@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),AspNetLib.sln))\tools\WebStack.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{A9C616DF-CF8E-4923-8F45-B1DEE8898992}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Web.Mvc</RootNamespace>
+    <AssemblyName>AspNetLib.Mvc.ModelBinding</AssemblyName>
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <RunCodeAnalysis>$(CodeAnalysis)</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\Strict.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\PrefixContainer.cs">
+      <Link>Common\PrefixContainer.cs</Link>
+    </Compile>
+    <Compile Include="BindAttribute.cs" />
+    <Compile Include="ByteArrayModelBinder.cs" />
+    <Compile Include="CancellationTokenModelBinder.cs" />
+    <Compile Include="CustomModelBinderAttribute.cs" />
+    <Compile Include="DefaultModelBinder.cs" />
+    <Compile Include="DictionaryValueProvider.cs" />
+    <Compile Include="FormCollection.cs" />
+    <Compile Include="FormValueProvider.cs" />
+    <Compile Include="FormValueProviderFactory.cs" />
+    <Compile Include="HttpFileCollectionValueProvider.cs" />
+    <Compile Include="HttpFileCollectionValueProviderFactory.cs" />
+    <Compile Include="HttpPostedFileBaseModelBinder.cs" />
+    <Compile Include="IEnumerableValueProvider.cs" />
+    <Compile Include="IModelBinder.cs" />
+    <Compile Include="IModelBinderProvider.cs" />
+    <Compile Include="IUnvalidatedRequestValues.cs" />
+    <Compile Include="IUnvalidatedValueProvider.cs" />
+    <Compile Include="IValueProvider.cs" />
+    <Compile Include="JQueryFormValueProvider.cs" />
+    <Compile Include="JQueryFormValueProviderFactory.cs" />
+    <Compile Include="JsonValueProviderFactory.cs" />
+    <Compile Include="LinqBinaryModelBinder.cs" />
+    <Compile Include="ModelBinderAttribute.cs" />
+    <Compile Include="ModelBinderDictionary.cs" />
+    <Compile Include="ModelBinderProviderCollection.cs" />
+    <Compile Include="ModelBinderProviders.cs" />
+    <Compile Include="ModelBinders.cs" />
+    <Compile Include="ModelBindingContext.cs" />
+    <Compile Include="NameValueCollectionValueProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryStringValueProvider.cs" />
+    <Compile Include="QueryStringValueProviderFactory.cs" />
+    <Compile Include="RouteDataValueProvider.cs" />
+    <Compile Include="RouteDataValueProviderFactory.cs" />
+    <Compile Include="UnvalidatedRequestValuesAccessor.cs" />
+    <Compile Include="UnvalidatedRequestValuesWrapper.cs" />
+    <Compile Include="ValueProviderCollection.cs" />
+    <Compile Include="ValueProviderFactories.cs" />
+    <Compile Include="ValueProviderFactory.cs" />
+    <Compile Include="ValueProviderFactoryCollection.cs" />
+    <Compile Include="ValueProviderUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetLib.Mvc\AspNetLib.Mvc.csproj">
+      <Project>{3d3ffd8a-624d-4e9b-954b-e1c105507975}</Project>
+      <Name>AspNetLib.Mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -16,7 +16,9 @@ using System.Runtime.InteropServices;
 [assembly: CLSCompliant(true)]
 #endif
 [assembly: NeutralResourcesLanguage("en-US")]
+#if ASPNETWEBPAGES
 [assembly: AssemblyMetadata("Serviceable", "True")]
+#endif
 
 // ===========================================================================
 //  DO NOT EDIT OR REMOVE ANYTHING BELOW THIS COMMENT.
@@ -44,5 +46,7 @@ using System.Runtime.InteropServices;
 #endif
 [assembly: AssemblyProduct("Microsoft ASP.NET Facebook")]
 #else
-#error Runtime projects must define either ASPNETMVC or ASPNETWEBPAGES
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("0.1.0")]
+[assembly: AssemblyProduct("AspNetLib")]
 #endif

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),AspNetLib.sln))\tools\WebStack.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{25FFF507-9CBB-49E4-A4D1-C36276CC88FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Web.Helpers</RootNamespace>
+    <AssemblyName>AspNetLib.AntiXsrf</AssemblyName>
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <RunCodeAnalysis>$(CodeAnalysis)</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\Strict.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AntiForgery.cs" />
+    <Compile Include="AntiForgeryConfig.cs" />
+    <Compile Include="AntiXsrf\AntiForgeryConfigWrapper.cs" />
+    <Compile Include="AntiXsrf\AntiForgeryToken.cs" />
+    <Compile Include="AntiXsrf\AntiForgeryTokenSerializer.cs" />
+    <Compile Include="AntiXsrf\AntiForgeryTokenStore.cs" />
+    <Compile Include="AntiXsrf\AntiForgeryWorker.cs" />
+    <Compile Include="AntiXsrf\BinaryBlob.cs" />
+    <Compile Include="AntiXsrf\ClaimUidExtractor.cs" />
+    <Compile Include="AntiXsrf\IAntiForgeryConfig.cs" />
+    <Compile Include="AntiXsrf\IAntiForgeryTokenSerializer.cs" />
+    <Compile Include="AntiXsrf\IClaimUidExtractor.cs" />
+    <Compile Include="AntiXsrf\ICryptoSystem.cs" />
+    <Compile Include="AntiXsrf\ITokenStore.cs" />
+    <Compile Include="AntiXsrf\ITokenValidator.cs" />
+    <Compile Include="AntiXsrf\MachineKey45CryptoSystem.cs" />
+    <Compile Include="AntiXsrf\TokenValidator.cs" />
+    <Compile Include="Claims\Claim.cs" />
+    <Compile Include="Claims\ClaimsIdentity.cs" />
+    <Compile Include="Claims\ClaimsIdentityConverter.cs" />
+    <Compile Include="CryptoUtil.cs" />
+    <Compile Include="HttpAntiForgeryException.cs" />
+    <Compile Include="IAntiForgeryAdditionalDataProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\WebPageResources.Designer.cs">
+      <DependentUpon>WebPageResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WebPageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebPageResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>System.Web.WebPages.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
