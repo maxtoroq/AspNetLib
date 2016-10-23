@@ -28,6 +28,7 @@
     <Compile Include="BuildManagerViewEngine.cs" />
     <Compile Include="BuildManagerWrapper.cs" />
     <Compile Include="IBuildManager.cs" />
+    <Compile Include="IViewPageActivator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeCacheSerializer.cs" />
     <Compile Include="TypeCacheUtil.cs" />

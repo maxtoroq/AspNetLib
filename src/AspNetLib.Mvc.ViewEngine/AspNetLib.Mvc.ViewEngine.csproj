@@ -26,7 +26,6 @@
     <Compile Include="DefaultViewLocationCache.cs" />
     <Compile Include="IViewEngine.cs" />
     <Compile Include="IViewLocationCache.cs" />
-    <Compile Include="IViewPageActivator.cs" />
     <Compile Include="NullViewLocationCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewEngineCollection.cs" />
