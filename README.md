@@ -70,7 +70,7 @@ Depends on:
 
 ### AspNetLib.Mvc.Html
 
-Html helpers (extension methods). Includes types in System.Web.Mvc.Html and System.Web.Ajax namespaces.
+Html helpers (extension methods). Includes types in System.Web.Mvc.Html and System.Web.Mvc.Ajax namespaces.
 
 Depends on:
 
