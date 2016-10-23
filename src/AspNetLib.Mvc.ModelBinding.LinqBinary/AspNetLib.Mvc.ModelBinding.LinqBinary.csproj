@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),AspNetLib.sln))\tools\WebStack.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{3567EE05-4179-47A3-9989-313C200978CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Web.Mvc</RootNamespace>
+    <AssemblyName>AspNetLib.Mvc.ModelBinding.LinqBinary</AssemblyName>
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <RunCodeAnalysis>$(CodeAnalysis)</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\Strict.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="LinqBinaryModelBinder.cs" />
+    <Compile Include="PreApplicationStartCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetLib.Mvc.ModelBinding\AspNetLib.Mvc.ModelBinding.csproj">
+      <Project>{a9c616df-cf8e-4923-8f45-b1dee8898992}</Project>
+      <Name>AspNetLib.Mvc.ModelBinding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AspNetLib.Mvc\AspNetLib.Mvc.csproj">
+      <Project>{3d3ffd8a-624d-4e9b-954b-e1c105507975}</Project>
+      <Name>AspNetLib.Mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

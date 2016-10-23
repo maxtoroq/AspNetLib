@@ -17,7 +17,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
@@ -49,7 +48,6 @@
     <Compile Include="JQueryFormValueProvider.cs" />
     <Compile Include="JQueryFormValueProviderFactory.cs" />
     <Compile Include="JsonValueProviderFactory.cs" />
-    <Compile Include="LinqBinaryModelBinder.cs" />
     <Compile Include="ModelBinderAttribute.cs" />
     <Compile Include="ModelBinderDictionary.cs" />
     <Compile Include="ModelBinderProviderCollection.cs" />
