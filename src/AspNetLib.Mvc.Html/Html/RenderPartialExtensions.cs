@@ -65,7 +65,13 @@ namespace System.Web.Mvc.Html
                 }
             }
 
-            ViewContext newViewContext = new ViewContext(htmlHelper.ViewContext, htmlHelper.ViewContext.View, newViewData, htmlHelper.ViewContext.TempData, writer);
+            ViewContext newViewContext = new ViewContext(
+                htmlHelper.ViewContext,
+#if ASPNETMVC
+                htmlHelper.ViewContext.View,
+#endif
+                newViewData, htmlHelper.ViewContext.TempData, writer);
+
             IView view = FindPartialView(newViewContext, partialViewName, viewEngineCollection);
             view.Render(newViewContext, writer);
         }

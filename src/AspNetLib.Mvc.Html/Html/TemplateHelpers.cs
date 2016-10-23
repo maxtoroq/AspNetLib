@@ -106,7 +106,13 @@ namespace System.Web.Mvc.Html
 
                         using (StringWriter writer = new StringWriter(CultureInfo.InvariantCulture))
                         {
-                            viewEngineResult.View.Render(new ViewContext(html.ViewContext, viewEngineResult.View, viewData, html.ViewContext.TempData, writer), writer);
+                            viewEngineResult.View.Render(
+                                new ViewContext(
+                                    html.ViewContext,
+#if ASPNETMVC
+                                    viewEngineResult.View,
+#endif
+                                    viewData, html.ViewContext.TempData, writer), writer);
                             return writer.ToString();
                         }
                     }
@@ -320,7 +326,12 @@ namespace System.Web.Mvc.Html
         private static HtmlHelper MakeHtmlHelper(HtmlHelper html, ViewDataDictionary viewData)
         {
             var newHelper = new HtmlHelper(
-                new ViewContext(html.ViewContext, html.ViewContext.View, viewData, html.ViewContext.TempData, html.ViewContext.Writer),
+                new ViewContext(
+                    html.ViewContext,
+#if ASPNETMVC
+                    html.ViewContext.View,
+#endif
+                    viewData, html.ViewContext.TempData, html.ViewContext.Writer),
                 new ViewDataContainer(viewData));
             newHelper.Html5DateRenderingMode = html.Html5DateRenderingMode;
             return newHelper;
@@ -350,7 +361,13 @@ namespace System.Web.Mvc.Html
                 ViewEngineResult viewEngineResult = ViewEngines.Engines.FindPartialView(html.ViewContext, ViewName);
                 using (StringWriter writer = new StringWriter(CultureInfo.InvariantCulture))
                 {
-                    viewEngineResult.View.Render(new ViewContext(html.ViewContext, viewEngineResult.View, viewData, html.ViewContext.TempData, writer), writer);
+                    viewEngineResult.View.Render(
+                        new ViewContext(
+                            html.ViewContext,
+#if ASPNETMVC
+                            viewEngineResult.View,
+#endif
+                            viewData, html.ViewContext.TempData, writer), writer);
                     return writer.ToString();
                 }
             }

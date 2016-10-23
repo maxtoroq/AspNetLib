@@ -8,7 +8,7 @@ Packages can depend on ancestor or sibling, but not on descendant packages. For 
 
 ### AspNetLib.Mvc
 
-Includes the core types that make up the bones of the framework, such as ControllerContext, ViewContext, ModelMetadata, ViewDataDictionary and HtmlHelper. It also includes utilities like SelectList and TagBuilder. *Anything related to controllers is NOT included*.
+Includes the core types that make up the bones of the framework, such as ControllerContext, ViewContext, ModelMetadata, ViewDataDictionary and HtmlHelper. It also includes utilities like SelectList and TagBuilder. **Anything related to controllers is NOT included**.
 
 Depends on:
 
@@ -32,7 +32,7 @@ Depends on:
 
 ### AspNetLib.Mvc.ViewEngine
 
-View engine classes.
+View engine abstractions. Includes types like IViewEngine, IView and ViewEngines.
 
 Depends on:
 
@@ -40,7 +40,7 @@ Depends on:
 
 ### AspNetLib.Mvc.ViewEngine.Compilation
 
-Classes that support compiled view engines, integrates with the System.Web.Compilation namespace.
+Classes that support compiled view engines, integrates with the System.Web.Compilation namespace. Includes types like BuildManagerViewEngine and BuildManagerCompiledView.
 
 Depends on:
 
@@ -49,7 +49,7 @@ Depends on:
 
 ### AspNetLib.Mvc.ViewEngine.Razor
 
-Razor view engine.
+Razor view engine. Includes types like RazorViewEngine, RazorView and WebViewPage.
 
 Depends on:
 
@@ -60,7 +60,7 @@ Depends on:
 
 ### AspNetLib.Mvc.ViewEngine.WebForm
 
-Webform view engine.
+Webform view engine. Includes types like WebFormViewEngine, WebFormView and ViewPage.
 
 Depends on:
 
@@ -70,7 +70,7 @@ Depends on:
 
 ### AspNetLib.Mvc.Html
 
-Html helpers.
+Html helpers (extension methods). Includes types in System.Web.Mvc.Html and System.Web.Ajax namespaces.
 
 Depends on:
 
@@ -79,8 +79,15 @@ Depends on:
 
 ### AspNetLib.AntiXsrf
 
-Anti-forgery classes from WebPages.
+Anti-forgery feature from WebPages. Includes types like AntiForgery and HttpAntiForgeryException.
 
 ### AspNetLib.BrowserOverriding
 
-Browser overriding feature from WebPages.
+Browser overriding feature from WebPages. Includes types like BrowserHelpers and BrowserOverrideStore.
+
+Breaking changes
+----------------
+
+### ControllerContext and ViewContext
+
+In ASP.NET MVC, ControllerBase depends on ControllerContext and ControllerContext depends on ControllerBase. The same for IView: IView depends on ViewContext and ViewContext depends on IView. This circular dependency is not only not necessary, it makes it hard to decouple controllers and views from the rest of the framework. For these reasons, in AspNetLib ControllerContext no longer depends on ControllerBase and ViewContext no longer depends on IView.

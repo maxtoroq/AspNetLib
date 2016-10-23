@@ -161,7 +161,6 @@
     <Compile Include="ModelState.cs" />
     <Compile Include="ModelErrorCollection.cs" />
     <Compile Include="ModelError.cs" />
-    <Compile Include="IView.cs" />
     <Compile Include="SessionStateTempDataProvider.cs" />
     <Compile Include="ITempDataProvider.cs" />
     <Compile Include="GlobalSuppressions.cs" />

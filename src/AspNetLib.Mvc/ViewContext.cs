@@ -43,17 +43,23 @@ window.mvcClientValidationMetadata.push({0});
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", Justification = "The virtual property setters are only to support mocking frameworks, in which case this constructor shouldn't be called anyway.")]
-        public ViewContext(ControllerContext controllerContext, IView view, ViewDataDictionary viewData, TempDataDictionary tempData, TextWriter writer)
+        public ViewContext(ControllerContext controllerContext,
+#if ASPNETMVC
+                IView view,
+#endif
+                ViewDataDictionary viewData, TempDataDictionary tempData, TextWriter writer)
             : base(controllerContext)
         {
             if (controllerContext == null)
             {
                 throw new ArgumentNullException("controllerContext");
             }
+#if ASPNETMVC
             if (view == null)
             {
                 throw new ArgumentNullException("view");
             }
+#endif
             if (viewData == null)
             {
                 throw new ArgumentNullException("viewData");
@@ -67,7 +73,9 @@ window.mvcClientValidationMetadata.push({0});
                 throw new ArgumentNullException("writer");
             }
 
+#if ASPNETMVC
             View = view;
+#endif
             ViewData = viewData;
             Writer = writer;
             TempData = tempData;
@@ -171,7 +179,9 @@ window.mvcClientValidationMetadata.push({0});
             }
         }
 
+#if ASPNETMVC
         public virtual IView View { get; set; }
+#endif
 
         public dynamic ViewBag
         {

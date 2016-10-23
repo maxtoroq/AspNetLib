@@ -24,6 +24,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="DefaultViewLocationCache.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="IViewEngine.cs" />
     <Compile Include="IViewLocationCache.cs" />
     <Compile Include="NullViewLocationCache.cs" />
