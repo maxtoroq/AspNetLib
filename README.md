@@ -2,9 +2,9 @@ AspNetLib
 =========
 AspNetLib is a fork of ASP.NET MVC 5 that splits the codebase into smaller projects for easier reuse. You can use it to add features to your own framework. Type names and namespaces are not changed, and breaking changes are kept to an absolute minimum.
 
-Packages
+Projects
 --------
-Packages can depend on ancestor or sibling, but not on descendant packages. For example, AspNetLib.Mvc.ModelBinding depends on AspNetLib.Mvc, not the other way around.
+Projects can depend on ancestor or sibling, but not on descendant projects. For example, AspNetLib.Mvc.ModelBinding depends on AspNetLib.Mvc, not the other way around.
 
 ### AspNetLib.Mvc
 
@@ -24,7 +24,7 @@ Depends on:
 
 ### AspNetLib.Mvc.DataAnnotations
 
-Implementation classes that integrate with the System.ComponentModel.DataAnnotations namespace. If you don't use this package annotations are completely ignored for metadata and validation.
+Implementation classes that integrate with the System.ComponentModel.DataAnnotations namespace. If you don't use this assembly annotations are completely ignored for metadata and validation.
 
 Depends on:
 
@@ -91,3 +91,7 @@ Breaking changes
 ### ControllerContext and ViewContext
 
 In ASP.NET MVC, ControllerBase depends on ControllerContext and ControllerContext depends on ControllerBase. The same for IView: IView depends on ViewContext and ViewContext depends on IView. This circular dependency is not only not necessary, it makes it hard to decouple controllers and views from the rest of the framework. For these reasons, in AspNetLib ControllerContext no longer depends on ControllerBase and ViewContext no longer depends on IView.
+
+### HtmlHelper.AntiForgery
+
+The HtmlHelper.AntiForgery method was removed to avoid the dependency on AspNetLib.AntiXsrf. You can call `AntiForgery.GetHtml()` instead.
