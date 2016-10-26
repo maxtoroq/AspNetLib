@@ -8,7 +8,9 @@ namespace System.Web.WebPages
         internal static EventHandler ApplicationStart;
         internal static EventHandler BeginRequest;
         internal static EventHandler EndRequest;
+#if ASPNETWEBPAGES
         private static bool _appStartExecuted = false;
+#endif
         private static readonly object _appStartExecutedLock = new object();
         private static readonly object _hasBeenRegisteredKey = new object();
 
@@ -41,6 +43,7 @@ namespace System.Web.WebPages
 
         internal static void InitializeApplication(HttpApplication application)
         {
+#if ASPNETWEBPAGES
             InitializeApplication(application, OnApplicationPostResolveRequestCache, Initialize);
         }
 
@@ -57,10 +60,12 @@ namespace System.Web.WebPages
             }
 
             application.EndRequest += OnEndRequest;
+#endif
         }
 
         internal static void StartApplication(HttpApplication application)
         {
+#if ASPNETWEBPAGES
             StartApplication(application, ApplicationStartPage.ExecuteStartPage, ApplicationStart);
         }
 
@@ -74,15 +79,19 @@ namespace System.Web.WebPages
                     _appStartExecuted = true;
 
                     executeStartPage(application);
+#endif
                     AppStartExecuteCompleted = true;
+#if ASPNETWEBPAGES
                     if (applicationStart != null)
                     {
                         applicationStart(application, EventArgs.Empty);
                     }
                 }
             }
+#endif
         }
 
+#if ASPNETWEBPAGES
         internal static void OnApplicationPostResolveRequestCache(object sender, EventArgs e)
         {
             HttpContextBase context = new HttpContextWrapper(((HttpApplication)sender).Context);
@@ -113,5 +122,6 @@ namespace System.Web.WebPages
             var app = (HttpApplication)sender;
             RequestResourceTracker.DisposeResources(new HttpContextWrapper(app.Context));
         }
-    }
+#endif
+   }
 }

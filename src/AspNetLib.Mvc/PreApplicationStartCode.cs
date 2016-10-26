@@ -3,7 +3,9 @@
 using System.ComponentModel;
 using System.Web.Mvc;
 using System.Web.UI;
+using System.Web.WebPages;
 using System.Web.WebPages.Scope;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
 namespace AspNetLib.Mvc
 {
@@ -25,6 +27,8 @@ namespace AspNetLib.Mvc
             PageParser.EnableLongStringsAsResources = false;
 
             ScopeStorage.CurrentProvider = new AspNetRequestScopeStorageProvider();
+
+            DynamicModuleUtility.RegisterModule(typeof(WebPageHttpModule));
 
             ViewContext.GlobalScopeThunk = () => ScopeStorage.CurrentScope;
         }

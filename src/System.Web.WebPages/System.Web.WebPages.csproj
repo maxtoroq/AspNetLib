@@ -166,6 +166,9 @@
     <Compile Include="..\AspNetLib.Mvc\UnobtrusiveValidationAttributesGenerator.cs">
       <Link>Mvc\UnobtrusiveValidationAttributesGenerator.cs</Link>
     </Compile>
+    <Compile Include="..\AspNetLib.Mvc\WebPageHttpModule.cs">
+      <Link>WebPageHttpModule.cs</Link>
+    </Compile>
     <Compile Include="..\AspNetLib.Mvc\WebPages\DefaultDisplayMode.cs">
       <Link>DefaultDisplayMode.cs</Link>
     </Compile>
@@ -311,7 +314,6 @@
     <Compile Include="TemplateStack.cs" />
     <Compile Include="Utils\CultureUtil.cs" />
     <Compile Include="Utils\PathUtil.cs" />
-    <Compile Include="WebPageHttpModule.cs" />
     <Compile Include="HelperPage.cs" />
     <Compile Include="HelperResult.cs" />
     <Compile Include="IWebPageRequestExecutor.cs" />

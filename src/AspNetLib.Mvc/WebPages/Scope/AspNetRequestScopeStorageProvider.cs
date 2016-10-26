@@ -16,11 +16,7 @@ namespace System.Web.WebPages.Scope
 
         public AspNetRequestScopeStorageProvider()
             : this(httpContext: null, appStartExecuted: () =>
-#if ASPNETWEBPAGES
                 WebPageHttpModule.AppStartExecuteCompleted
-#else
-                true
-#endif
             )
         {
         }
