@@ -74,7 +74,13 @@ namespace System.Web.Mvc
                 foreach (ValidationAttribute attribute in attributes.OfType<ValidationAttribute>())
                 {
                     DataAnnotationsModelValidationFactory factory;
-                    if (!AttributeFactories.TryGetValue(attribute.GetType(), out factory))
+
+                    Type attrType = attribute.GetType();
+
+                    if (!AttributeFactories.TryGetValue(attrType, out factory) &&
+                        (factory = AttributeFactories.Where(pair => pair.Key.IsAssignableFrom(attrType))
+                            .Select(pair => pair.Value)
+                            .FirstOrDefault()) == null)
                     {
                         factory = DefaultAttributeFactory;
                     }
